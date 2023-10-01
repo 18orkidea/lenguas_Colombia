@@ -18,11 +18,14 @@ rojo_data = data[data["Hablantes"] < 1000]
 
 st.title("Lenguas Indígenas de Colombia por Número de Hablantes")
 st.markdown('Datos extraídos de [endangeredlanguages.com](http://www.endangeredlanguages.com) y [endangeredlanguages.com](http://www.endangeredlanguages.com) (2023). Para ver más información sobre el riesgo en que se encuentra la lengua, ver la tabla debajo del mapa.')
-st.markdown("visualización: [@jp@col.social](https://col.social/@jp)")
+st.markdown("Visualización: [@jp@col.social](https://col.social/@jp)")
 st.text("Pasa el cursor sobre los círculos o barras para ver más información")
 
-# Creamos dos columnas: una para el mapa y otra para la leyenda
-col1, col2 = st.columns(2)
+# Leyenda
+st.markdown("#### Leyenda")
+st.markdown("🟢 Más de 10,000 hablantes")
+st.markdown("🟠 Entre 1,000 y 5,000 hablantes")
+st.markdown("🔴 Menos de 1,000 hablantes")
 
 # Configurar el tooltip
 tooltip = {
@@ -30,8 +33,7 @@ tooltip = {
     "style": {"backgroundColor": "steelblue", "color": "white"}
 }
 
-# Agregar el mapa en la columna de la izquierda
-col1.pydeck_chart(pdk.Deck(
+st.pydeck_chart(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
     initial_view_state=pdk.ViewState(
         latitude=data["Latitud"].mean(),
@@ -75,18 +77,9 @@ col1.pydeck_chart(pdk.Deck(
     tooltip=tooltip  # Añadimos la configuración del tooltip aquí
 ))
 
-# Agregar la leyenda en la columna de la derecha
-col2.header("Leyenda")
-col2.markdown("🟢 Más de 10,000 hablantes")
-col2.markdown("🟠 Entre 1,000 y 5,000 hablantes")
-col2.markdown("🔴 Menos de 1,000 hablantes")
-
 # Mostrar los datos filtrados en una tabla
 st.subheader("Datos de las Lenguas Indígenas de Colombia")
-
-# Filtrar columnas
 data_display = data[["lengua", "también conocido como", "Hablantes", "lengua-href"]].copy()
 data_display.columns = ["Lengua", "También Conocido Como", "Número de Hablantes", "Enlace de Referencia URL"]
-data_display.insert(0, "Número", range(1, len(data_display) + 1))  # Agregamos una columna de números
+data_display.insert(0, "Número", range(1, len(data_display) + 1))
 st.dataframe(data_display)
-
