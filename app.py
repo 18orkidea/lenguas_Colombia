@@ -22,7 +22,7 @@ st.markdown("visualización: [@jp@col.social](https://col.social/@jp)")
 st.text("Pasa el cursor sobre los círculos o barras para ver más información")
 
 # Creamos dos columnas: una para el mapa y otra para la leyenda
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 
 # Configurar el tooltip
 tooltip = {
