@@ -19,7 +19,7 @@ rojo_data = data[data["Hablantes"] < 1000]
 st.title("Lenguas Indígenas de Colombia por Número de Hablantes")
 st.text("Datos extraídos de endangeredlanguages.com y endangeredlanguages.com (2023)")
 st.text("Visualización de datos por @jp@col.social")
-st.test("Pasa el cursor sobre los círculos o barras para ver más información")
+st.text("Pasa el cursor sobre los círculos o barras para ver más información")
 
 # Configurar el tooltip
 tooltip = {
