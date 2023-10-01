@@ -17,7 +17,7 @@ naranja_data = data[(data["Hablantes"] >= 1000) & (data["Hablantes"] <= 5000)]
 rojo_data = data[data["Hablantes"] < 1000]
 
 st.title("Lenguas Indígenas de Colombia por Número de Hablantes")
-st.markdown('Datos extraídos de [endangeredlanguages.com](http://www.endangeredlanguages.com) y [endangeredlanguages.com](http://www.endangeredlanguages.com) (2023). Para ver más información sobre el riesgo en que se encuentra la lengua, ver la tabla debajo del mapa.')
+st.markdown('Datos extraídos de [endangeredlanguages.com](http://www.endangeredlanguages.com)(2023). Para ver más información sobre el riesgo en que se encuentra la lengua, ver la tabla debajo del mapa.')
 st.markdown("Visualización: [@jp@col.social](https://col.social/@jp)")
 st.text("Pasa el cursor sobre los círculos o barras para ver más información")
 
